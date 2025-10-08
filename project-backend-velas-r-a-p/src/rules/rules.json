@@ -1,0 +1,834 @@
+{
+    "conditions": {
+      "living_room_warmth": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "living_room"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "warmth"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Hogar de Cedro", "Manto de Vainilla", "Ámbar Crepuscular", "Llama Interior", "Refugio Otoñal"]
+          }
+        }
+      },
+      "living_room_freshness": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "living_room"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "freshness"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Brisa Cítrica", "Verde Vital", "Rocío de Montaña", "Horizonte Marino", "Despertar Cítrico"]
+          }
+        }
+      },
+      "living_room_cleanliness": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "living_room"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "cleanliness"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Blanco Puro", "Niebla de Algodón", "Brisa Interior", "Aura de Bambú", "Claridad Serena"]
+          }
+        }
+      },
+      "living_room_nature_connection": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "living_room"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "nature_connection"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Bosque Silente", "Tierra Viva", "Caminos de Pino", "Verde Profundo", "Sendero Herbal"]
+          }
+        }
+      },
+      "living_room_spa_wellness": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "living_room"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "spa_wellness"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Spa Silvestre", "Cielo de Miel", "Agua Zen", "Jardín de Calma", "Paz Profunda"]
+          }
+        }
+      },
+      "living_room_mental_clarity": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "living_room"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "mental_clarity"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Mente Clara", "Amanecer Verde", "Bosque Lúcido", "Luz Mental", "Vitalidad Suave"]
+          }
+        }
+      },
+      "bedroom_relaxation_sleep": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "bedroom"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "relaxation_sleep"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Noche de Lavanda", "Luna de Seda", "Calma Nocturna", "Susurro de Almizcle", "Jardín al Anochecer"]
+          }
+        }
+      },
+      "bedroom_sensuality": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "bedroom"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "sensuality"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Noche de Ámbar", "Piel de Seda", "Vainilla Obscura", "Sombra de Cachemira", "Deseo Oriental"]
+          }
+        }
+      },
+      "bedroom_spa_wellness": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "bedroom"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "spa_wellness"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Respirar Profundo", "Té y Silencio", "Aliento Floral", "Ritual de Lavanda", "Conexión Interior"]
+          }
+        }
+      },
+      "bedroom_cleanliness_purity": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "bedroom"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "cleanliness_purity"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Cielo de Algodón", "Blanco Sereno", "Lino Seco al Sol", "Claridad Suave", "Viento de Paz"]
+          }
+        }
+      },
+      "bedroom_romance_tenderness": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "bedroom"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "romance_tenderness"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Rosas de Medianoche", "Abrazo de Peonía", "Melodía de Flor", "Suspiros de Lila", "Romance de Té"]
+          }
+        }
+      },
+      "bathroom_freshness_cleanliness": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "bathroom"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "freshness_cleanliness"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Agua Clara", "Brisa de Ducha", "Jabón de Sol", "Cítrico Puro", "Espuma de Agua"]
+          }
+        }
+      },
+      "bathroom_energy_vitality": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "bathroom"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "energy_vitality"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Estallido Cítrico", "Amanecer Verde", "Despertar Solar", "Brisa Cítrica", "Lluvia Tropical"]
+          }
+        }
+      },
+      "bathroom_spa_wellness": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "bathroom"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "spa_wellness"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Spa Botánico", "Té Azul", "Aire Termal", "Vapor Floral", "Ritual de Niebla"]
+          }
+        }
+      },
+      "bathroom_sensuality_relaxation": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "bathroom"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "sensuality_relaxation"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Baño de Seda", "Ámbar en la Piel", "Flor de Leche", "Burbujas de Miel", "Velo Oriental"]
+          }
+        }
+      },
+      "kitchen_dining_cleanliness_order": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "kitchen_dining"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "cleanliness_order"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Brisa de Albahaca", "Hierba Cítrica", "Eucalipto Blanco", "Niebla de Cítricos", "Rocío Herbal"]
+          }
+        }
+      },
+      "kitchen_dining_natural_freshness": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "kitchen_dining"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "natural_freshness"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Jardín de Cocina", "Limón Verdeado", "Hoja Viva", "Lavanda de Huerto", "Tierra Cítrica"]
+          }
+        }
+      },
+      "kitchen_dining_family_warmth": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "kitchen_dining"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "family_warmth"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Pastel de Manzana", "Dulce Panal", "Horno Encendido", "Postre de Abuela", "Té con Mermelada"]
+          }
+        }
+      },
+      "kitchen_dining_joy_vitality": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "kitchen_dining"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "joy_vitality"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Cítricos en Fiesta", "Fruta Viva", "Pomelo Rosa", "Chispa Amarilla", "Naranja Radiante"]
+          }
+        }
+      },
+      "office_study_mental_clarity": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "office_study"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "mental_clarity"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Claridad Verde", "Ritmo Zen", "Brisa Mental", "Minimalismo", "Punto de Enfoque"]
+          }
+        }
+      },
+      "office_study_creativity_inspiration": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "office_study"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "creativity_inspiration"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Alma Creativa", "Luz Interior", "Mente Viva", "Estudio Cálido", "Fulgor Dorado"]
+          }
+        }
+      },
+      "office_study_balance_serenity": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "decorate"
+          },
+          {
+            "fact": "space",
+            "operator": "equal",
+            "value": "office_study"
+          },
+          {
+            "fact": "ambiance",
+            "operator": "equal",
+            "value": "balance_serenity"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Paz Mental", "Mente Serena", "Refugio Claro", "Aire de Sabiduría", "Respiración Profunda"]
+          }
+        }
+      },
+      "feel_relaxed": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "feel"
+          },
+          {
+            "fact": "emotion",
+            "operator": "equal",
+            "value": "relaxed"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Calma Profunda", "Nube de Paz", "Jardín Silente", "Té y Lavanda", "Paz Serena"]
+          }
+        }
+      },
+      "feel_energetic": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "feel"
+          },
+          {
+            "fact": "emotion",
+            "operator": "equal",
+            "value": "energetic"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Vitalidad Cítrica", "Estallido Solar", "Menta Activa", "Fórmula Energética", "Sol de Mañana"]
+          }
+        }
+      },
+      "feel_sensual": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "feel"
+          },
+          {
+            "fact": "emotion",
+            "operator": "equal",
+            "value": "sensual"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Noche de Ámbar", "Piel de Seda", "Rosa Intensa", "Vainilla Especiada", "Jazmín Nocturno"]
+          }
+        }
+      },
+      "feel_inspired": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "feel"
+          },
+          {
+            "fact": "emotion",
+            "operator": "equal",
+            "value": "inspired"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Alma Creativa", "Claridad Verde", "Bruma Intelectual", "Chispa de Cedro", "Horizonte Azul"]
+          }
+        }
+      },
+      "feel_secure": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "feel"
+          },
+          {
+            "fact": "emotion",
+            "operator": "equal",
+            "value": "secure"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Fuerza Noble", "Tierra Firme", "Roble Profundo", "Poder Sutil", "Escudo de Madera"]
+          }
+        }
+      },
+      "feel_nature_connected": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "feel"
+          },
+          {
+            "fact": "emotion",
+            "operator": "equal",
+            "value": "nature_connected"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Bosque Interior", "Raíces Vivas", "Lluvia en el Bosque", "Sendero Natural", "Verde Silvestre"]
+          }
+        }
+      },
+      "gift_gratitude": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "gift"
+          },
+          {
+            "fact": "occasion",
+            "operator": "equal",
+            "value": "gratitude"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Dulce Gratitud", "Lluvia de Flores", "Abrazo en Botella", "Sonrisa Cálida", "Luz Interior"]
+          }
+        }
+      },
+      "gift_birthday": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "gift"
+          },
+          {
+            "fact": "occasion",
+            "operator": "equal",
+            "value": "birthday"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Fiesta Floral", "Brisa de Cumpleaños", "Vainilla Alegre", "Globos de Jazmín", "Regalo de Sol"]
+          }
+        }
+      },
+      "gift_love": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "gift"
+          },
+          {
+            "fact": "occasion",
+            "operator": "equal",
+            "value": "love"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Corazón de Rosa", "Dulzura de Tarde", "Susurros de Vainilla", "Romance Silvestre", "Luna de Almizcle"]
+          }
+        }
+      },
+      "gift_condolences": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "gift"
+          },
+          {
+            "fact": "occasion",
+            "operator": "equal",
+            "value": "condolences"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Silencio Floral", "Bruma de Paz", "Lirio Blanco", "Cálido Recuerdo", "Consuelo Natural"]
+          }
+        }
+      },
+      "gift_good_news": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "gift"
+          },
+          {
+            "fact": "occasion",
+            "operator": "equal",
+            "value": "good_news"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Brindis de Azahar", "Éxito en Flor", "Noticia Dulce", "Rayo Dorado", "Flor de Triunfo"]
+          }
+        }
+      },
+      "gift_friendship": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "gift"
+          },
+          {
+            "fact": "occasion",
+            "operator": "equal",
+            "value": "friendship"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Risa de Mandarina", "Cítricos y Carcajadas", "Dulce Encuentro", "Té con Amigos", "Complicidad Floral"]
+          }
+        }
+      },
+      "gift_christmas": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "gift"
+          },
+          {
+            "fact": "occasion",
+            "operator": "equal",
+            "value": "christmas"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Navidad de Especias", "Bosque Nevado", "Dulce Invierno", "Estrella de Navidad", "Chimenea Encendida"]
+          }
+        }
+      },
+      "gift_professional": {
+        "conditions": [
+          {
+            "fact": "intention",
+            "operator": "equal",
+            "value": "gift"
+          },
+          {
+            "fact": "occasion",
+            "operator": "equal",
+            "value": "professional"
+          }
+        ],
+        "event": {
+          "type": "recommendations",
+          "params": {
+            "fragance_names": ["Respeto Floral", "Oficio Noble", "Vocación Pura", "Dedicación en Flor", "Profesional Inspirador"]
+          }
+        }
+      }
+    }
+  }
