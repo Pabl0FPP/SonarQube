@@ -1,0 +1,100 @@
+#cloud-config
+package_update: true
+package_upgrade: true
+
+packages:
+  - docker.io
+  - docker-compose
+
+write_files:
+  - path: /opt/sonarqube/docker-compose.yml
+    content: |
+      version: "3"
+      services:
+        sonarqube:
+          image: sonarqube:lts-community
+          container_name: sonarqube
+          depends_on:
+            - db
+          environment:
+            SONAR_JDBC_URL: jdbc:postgresql://db:5432/sonar
+            SONAR_JDBC_USERNAME: sonar
+            SONAR_JDBC_PASSWORD: sonar
+          volumes:
+            - sonarqube_data:/opt/sonarqube/data
+            - sonarqube_extensions:/opt/sonarqube/extensions
+            - sonarqube_logs:/opt/sonarqube/logs
+          ports:
+            - "9000:9000"
+          restart: unless-stopped
+
+        db:
+          image: postgres:14
+          container_name: postgres
+          environment:
+            POSTGRES_USER: sonar
+            POSTGRES_PASSWORD: sonar
+            POSTGRES_DB: sonar
+          volumes:
+            - postgresql_data:/var/lib/postgresql/data
+          restart: unless-stopped
+
+        trivy:
+          image: aquasec/trivy:latest
+          container_name: trivy-scanner
+          volumes:
+            - trivy_cache:/root/.cache/trivy
+            - /var/run/docker.sock:/var/run/docker.sock:ro
+          restart: unless-stopped
+          command: server --listen 0.0.0.0:4954
+          ports:
+            - "4954:4954"
+
+      volumes:
+        sonarqube_data:
+        sonarqube_extensions:
+        sonarqube_logs:
+        postgresql_data:
+        trivy_cache:
+
+  - path: /opt/trivy-scan.sh
+    permissions: '0755'
+    content: |
+      #!/bin/bash
+      if [ $# -eq 0 ]; then
+          echo "Usage: $0 <docker-image>"
+          echo "Example: $0 node:16-alpine"
+          exit 1
+      fi
+      
+      IMAGE=$1
+      echo "Scanning image: $IMAGE with Trivy..."
+      
+      # Scan with remote Trivy server
+      docker run --rm aquasec/trivy:latest image \
+        --server http://localhost:4954 \
+        --severity HIGH,CRITICAL \
+        $IMAGE
+
+runcmd:
+  # Configurar límites del sistema para SonarQube
+  - echo "vm.max_map_count=524288" >> /etc/sysctl.conf
+  - echo "fs.file-max=131072" >> /etc/sysctl.conf
+  - sysctl -p
+  
+  # Agregar usuario al grupo docker
+  - usermod -aG docker ${admin_username}
+  
+  # Iniciar Docker y Docker Compose
+  - systemctl enable docker
+  - systemctl start docker
+  
+  # Crear directorio de SonarQube
+  - mkdir -p /opt/sonarqube
+  
+  # Iniciar servicios (SonarQube + PostgreSQL + Trivy)
+  - cd /opt/sonarqube
+  - docker-compose up -d
+  
+  # Esperar a que los servicios inicien
+  - sleep 90
