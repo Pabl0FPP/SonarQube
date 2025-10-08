@@ -1,0 +1,6 @@
+projectKey=velas
+serverUrl=http://localhost:9000
+serverVersion=25.9.0.112764
+dashboardUrl=http://localhost:9000/dashboard?id=velas
+ceTaskId=a0ef73de-71c6-4c28-b924-7818d057980f
+ceTaskUrl=http://localhost:9000/api/ce/task?id=a0ef73de-71c6-4c28-b924-7818d057980f
