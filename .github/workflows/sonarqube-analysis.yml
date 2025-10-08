@@ -1,0 +1,80 @@
+name: SonarQube Analysis
+
+on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'project-backend-velas-r-a-p/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'project-backend-velas-r-a-p/**'
+
+jobs:
+  test-and-analyze:
+    name: 'Test & SonarQube Analysis'
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: project-backend-velas-r-a-p
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: project-backend-velas-r-a-p/package-lock.json
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run tests and combine coverage
+      run: |
+        chmod +x combine-coverage.sh
+        ./combine-coverage.sh
+
+    - name: Run SonarQube Scanner
+      uses: sonarqube-scan-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+    - name: SonarQube Quality Gate
+      uses: sonarqube-quality-gate-action@master
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+
+  security-scan:
+    name: 'Trivy Security Scan'
+    runs-on: ubuntu-latest
+    needs: test-and-analyze
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Build Docker image
+      run: |
+        cd project-backend-velas-r-a-p
+        docker build -t velas-backend:${{ github.sha }} .
+
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        image-ref: 'velas-backend:${{ github.sha }}'
+        format: 'sarif'
+        output: 'trivy-results.sarif'
+
+    - name: Upload Trivy scan results
+      uses: github/codeql-action/upload-sarif@v2
+      if: always()
+      with:
+        sarif_file: 'trivy-results.sarif'
