@@ -30,7 +30,7 @@ jobs:
         cache-dependency-path: project-backend-velas-r-a-p/package-lock.json
 
     - name: Install dependencies
-      run: npm ci
+      run: npm ci --legacy-peer-deps
 
     - name: Run tests and combine coverage
       run: |
@@ -62,6 +62,16 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: project-backend-velas-r-a-p/package-lock.json
+
+    - name: Install dependencies for Docker build
+      run: npm ci --legacy-peer-deps
 
     - name: Build Docker image
       run: |
