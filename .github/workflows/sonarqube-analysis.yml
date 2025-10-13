@@ -31,51 +31,36 @@ jobs:
       run: |
         npm install --legacy-peer-deps
 
-    - name: Debug directory structure
-      run: |
-        pwd
-        ls -la
-        ls -la test/ || echo "Test directory not found"
-
     - name: Run unit tests with coverage
       continue-on-error: true
       run: |
-        echo "Running unit tests..."
-        npx jest --coverage --coverageDirectory=coverage/unit || echo "Unit tests failed"
-        ls -la coverage/ || echo "Coverage directory not created"
+        npm run test:cov
 
     - name: Run e2e tests with coverage
       continue-on-error: true
       run: |
-        echo "Running e2e tests..."
-        npx jest --config test/jest-e2e.json --coverage --coverageDirectory=coverage/e2e || echo "E2E tests failed"
-        ls -la coverage/ || echo "Coverage directory still not found"
+        npm run test:e2e -- --coverage --coverageDirectory=coverage/e2e
 
-    - name: Combine coverage manually
+    - name: Combine coverage files
       continue-on-error: true
       run: |
-        echo "Creating coverage directory if not exists..."
         mkdir -p coverage
-        if [ -f coverage/unit/lcov.info ]; then
-          cp coverage/unit/lcov.info coverage/lcov-unit.info
-          echo "Unit coverage copied"
-        else
-          echo "Unit coverage not found"
+        # Copy unit coverage if exists
+        if [ -f ../coverage/lcov.info ]; then
+          cp ../coverage/lcov.info coverage/lcov-unit.info
         fi
+        # Copy e2e coverage if exists  
         if [ -f coverage/e2e/lcov.info ]; then
           cp coverage/e2e/lcov.info coverage/lcov-e2e.info
-          echo "E2E coverage copied"
-        else
-          echo "E2E coverage not found"
         fi
-        # Combine available coverage files
-        cat coverage/lcov-*.info > coverage/lcov.info 2>/dev/null || echo "No coverage files to combine"
+        # Combine coverage files
+        cat coverage/lcov-*.info > coverage/lcov.info 2>/dev/null || touch coverage/lcov.info
 
     - name: Verify coverage file exists
       run: |
         ls -la coverage/ || echo "Coverage directory not found"
         ls -la coverage/lcov.info || echo "lcov.info not found"
-        pwd
+        cat coverage/lcov.info | head -5 || echo "lcov.info is empty"
 
     - name: Setup SonarQube Scanner
       uses: warchant/setup-sonar-scanner@v7
