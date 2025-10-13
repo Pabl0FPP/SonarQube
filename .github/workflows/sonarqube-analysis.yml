@@ -37,6 +37,12 @@ jobs:
         chmod +x combine-coverage.sh
         ./combine-coverage.sh
 
+    - name: Verify coverage file exists
+      run: |
+        ls -la coverage/ || echo "Coverage directory not found"
+        ls -la coverage/lcov.info || echo "lcov.info not found"
+        pwd
+
     - name: Setup SonarQube Scanner
       uses: warchant/setup-sonar-scanner@v7
 
@@ -48,7 +54,7 @@ jobs:
       run: |
         sonar-scanner \
           -Dsonar.host.url=$SONAR_HOST_URL \
-          -Dsonar.login=$SONAR_TOKEN \
+          -Dsonar.login=$SONAR_TOKEN
 
   security-scan:
     name: 'Trivy Security Scan'
